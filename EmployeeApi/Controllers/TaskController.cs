@@ -37,14 +37,14 @@ namespace EmployeeApi.Controllers
         }
 
         // Create a task
-        public IHttpActionResult PostEmployee(EmployeeTask task)
+        public IHttpActionResult PostTask(EmployeeTask task)
         {
             task = taskRepository.Add(task);
             return Ok(task);
         }
 
         // Update a task
-        public IHttpActionResult PutEmployee(EmployeeTask task)
+        public IHttpActionResult PutTask(EmployeeTask task)
         {
             if (!taskRepository.Update(task))
             {
