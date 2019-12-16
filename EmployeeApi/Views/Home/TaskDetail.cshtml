@@ -1,0 +1,48 @@
+﻿@model IEnumerable<EmployeeApi.Models.EmployeeTask>
+
+@{
+    ViewBag.Title = "TaskDetail";
+}
+
+<h2>Employee Tasks</h2>
+
+<p>
+    @Html.ActionLink("Create New task", "TaskCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Task Name
+        </th>
+        <th>
+            Start Date
+        </th>
+        <th>
+            Dead Line
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeadLine)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "TaskEdit", new { id = item.TaskId }) |
+                @Html.ActionLink("Delete", "TaskDelete", new { id = item.TaskId })
+            </td>
+        </tr>
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Back to Employee", "Edit", new { id = ViewBag.EmpId })
+</div>
+
